@@ -20,7 +20,7 @@ Se emplearán Eureka y Zuul de Netflix para el descubrimiento y ruteo de los ser
 
 En cuanto al logging centralizado se utilizará [Loggly](https://www.loggly.com/) o [Logstash](https://www.elastic.co/es/products/logstash)
 
-Para la persisntecia se utilizará como servidor de base de datos relacional PostgreSQL.
+Para la persisntecia se utilizará como servidor de base de datos relacional PostgreSQL. 
 
 ### Licencia
 
