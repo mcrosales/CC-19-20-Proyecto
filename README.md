@@ -42,4 +42,4 @@ Para el microservicio de vendedores/productos, se utilizará como servidor de ba
 Con el obejtivo de almacenar las estadísticas, se empleará una base de datos NoSQL, particularmente MongoDB, pudiendo almacenar aquí los logs centralizados de ser necesario.
 
 ### Licencia
-Se utiliza [GNU General Public License v3.0](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/LICENSE)
+Se utiliza [GNU General Public License v3.0](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/LICENSE) 
