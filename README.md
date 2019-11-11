@@ -33,7 +33,7 @@ Este aspecto estará cubierto por [Spring Cloud Config](https://cloud.spring.io/
 Como gateway se utilizará Spring Cloud Zuul, un componente del framework Spring basado en el proyecto [Zuul de Netflix](https://github.com/Netflix/zuul) el cual incluye ruteo, monitoreo y seguridad entre otros aspectos.
 
 ### Logging centralizado
-En cuanto al logging centralizado, [Logstash](https://www.elastic.co/es/products/logstash) prove varias funcionalidades, entre ellas exportar los logs a varias fuentes de datos,
+En cuanto al logging centralizado, [Logstash](https://www.elastic.co/es/products/logstash) provee varias funcionalidades, entre ellas exportar los logs a varias fuentes de datos,
 desde ficheros csv hasta bases de datos NoSql como MongoDB.
 
 
