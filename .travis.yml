@@ -1,0 +1,10 @@
+language: java
+jdk:
+- oraclejdk8
+- openjdk8
+dist: trusty
+before_install:
+- chmod +x vendors_products/mvnw
+
+script:
+  - mvn  -B -f vendors_products/pom.xml test
