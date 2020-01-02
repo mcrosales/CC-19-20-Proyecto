@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - checkout
-        - run:
+      - run:
           name: Generate cumulative pom.xml checksum
           command: |
             find . -type f -name "pom.xml" -exec sh -c "sha256sum {} >> ~/pom-checksum.tmp" \;
