@@ -16,7 +16,8 @@ jobs:
       MAVEN_OPTS: -Xmx3200m
 
     steps:
-      - checkout
+      - checkout:
+          path: ~/repo/vendors_products  
       - run:
           name: Generate cumulative pom.xml checksum
           command: |
@@ -38,4 +39,5 @@ jobs:
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
       # run tests!
-      - run: mvn -B -f vendors_products/pom.xml test 
+      - run: mvn test
+      #- run: mvn -B -f vendors_products/pom.xml test 
