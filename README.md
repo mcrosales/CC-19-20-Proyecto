@@ -8,7 +8,7 @@ La aplicación Mayorista constará de dos entidades fundamentales. De una parte,
 De otra, se ofrecerán estadísticas centralizadas, disponibles para los propios vendedores o terceros, previo acuerdo. 
 
 ### Arquitectura
-La arquitectura del proyecto se encuentra detallada en el siguiente [enlace](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/docs/hitos/README_Hito_1.md)
+La arquitectura del proyecto se encuentra detallada en el siguiente [enlace](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/docs/milestones/README_1.md)
 
 #### Microservicios
 
