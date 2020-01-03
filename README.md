@@ -38,7 +38,7 @@ Al inicializar un proyecto [Spring Boot](https://start.spring.io/) se pueden sel
 
 + [JUnit](https://junit.org/junit5/): *framework* de pruebas para Java en su versión 5
 + [Mockito](https://site.mockito.org/): *mocking framework* de pruebas unitarias, en este caso la versión 3
-+ [AssertJ](https://junit.org/junit5/): librería de aserciones, versión 3
++ [AssertJ](https://assertj.github.io/doc/): librería de aserciones, versión 3
 + [Hamcrest](http://hamcrest.org/JavaHamcrest/): *framework* de emparejadores (*matchers*) flexible, versión 2 
 
 Las pruebas del proyecto se implementan utilizando este conjunto de componentes, aprovechando su compatibilidad con Spring Boot.
