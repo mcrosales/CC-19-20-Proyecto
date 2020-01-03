@@ -1,4 +1,4 @@
-# CC-19-20-Proyecto
+# CC-19-20-Proyecto [![Build Status](https://travis-ci.org/mcrosales/CC-19-20-Proyecto.svg?branch=master)](https://travis-ci.org/mcrosales/CC-19-20-Proyecto) [![CircleCI](https://circleci.com/gh/mcrosales/CC-19-20-Proyecto.svg?style=svg)](https://circleci.com/gh/mcrosales/CC-19-20-Proyecto)
 
 Repositorio para proyecto de asignatura Cloud Computing de Maestría  en Informática de la Universidad de Granada
 
@@ -8,38 +8,45 @@ La aplicación Mayorista constará de dos entidades fundamentales. De una parte,
 De otra, se ofrecerán estadísticas centralizadas, disponibles para los propios vendedores o terceros, previo acuerdo. 
 
 ### Arquitectura
-Se utilizará una arquitectura basada en microservicios. Tendremos dos microservicios. El primero se encargará de gestionar los vendedores y sus productos.
-Incluirá funcionalidades como creación, modificación y gestión de productos, así como categorización e inventario de los mismos.
- 
-El segundo microservicio se encargará de gestionar las estadísticas. Entre los datos ofrecidos podemos
-enunciar: total de productos en venta y su precio total, vendedores con más productos e histórico de productos más demandados.
+La arquitectura del proyecto se encuentra detallada en el siguiente [enlace](https://github.com/spring-projects/spring-boot)
 
-Contaremos con los componentes tradicionales de una arquitectura basada en microservicios tales como ruteo, logging centralizado y configuración distribuida. Estos componentes se muestran en la siguiente imagen y serán descritos a continuación.
+#### Microservicios
 
-[Diagrama de arquitectura](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/docs/img/diagrama_arquitectura.jpg)
+Ambos microservicios siguen la siguiente estructura de paquetes:
 
-#### Lenguaje 
++ controller: contiene los endpoint de la aplicación
++ service: lógica de negocio
++ repository: implementación de acceso a datos 
++ model: entidades del negocio 
 
-El lenguaje utilizado será Java. Dentro el universo de posibilidades que ofrece este lenguaje, se prioriza el trabajo con el framework Spring, uno de los framework más maduros en el ecosistema Java. 
+##### Versiones de lenguaje y herramientas
 
-Para el desarrollo de los mircoservicios utilizaremos [Spring Boot](https://github.com/spring-projects/spring-boot), el cual permite la creación de aplicaciones basadas en Spring de una manera rápida, reduciendo la configuración inicial necesaria.
-Este proyecto ocupa el [6 lugar](https://github.com/search?l=Java&q=stars%3A%3E%3D500&type=Repositories) entre todos los proyectos Java de Github. Ambos microservicios implementarán una API REST. La comunicación entre el microservicio de vendedores/productos
-y el de estadísticas se llevará a cabo por medio de peticiones http asíncronas, haciendo uso de la anotación @Async, lo cual permitirá realizar las llamadas sin esperar por su completamiento.
+El proyecto hace uso extensivo de [Spring Boot](https://github.com/spring-projects/spring-boot) y por ende del lenguaje Java. La versión estable más reciente de Spring Boot es la 2.2.2. Soporta las versiones de Java 8, 11 y 13. A pesar de ser Java 8 la más antigua se seleccionó por su madurez y su alta compatibilidad con otras herramientas del ecosistema.
 
-#### Configuración distribuida
-Este aspecto estará cubierto por [Spring Cloud Config](https://cloud.spring.io/spring-cloud-config/reference/html/), el cual es compatible con aplicaciones Spring pero también con aplicaciones en otros lenguajes diferentes a Java.
+##### Herramienta de construcción
 
-#### API Gateway
-Como gateway se utilizará Spring Cloud Zuul, un componente del framework Spring basado en el proyecto [Zuul de Netflix](https://github.com/Netflix/zuul) el cual incluye ruteo, monitoreo y seguridad entre otros aspectos.
+buildtool: pom.xml
 
-### Logging centralizado
-En cuanto al logging centralizado, [Logstash](https://www.elastic.co/es/products/logstash) provee varias funcionalidades, entre ellas exportar los logs a varias fuentes de datos,
-desde ficheros csv hasta bases de datos NoSql como MongoDB.
+Al ser un proyecto Java, en cuanto a herramientas de construcción se refiere dos de las más utilizadas son
+[Maven](https://maven.apache.org/) y [Gradle](https://gradle.org/). El proyecto utiliza Maven, dada la amplia documentación existente y la posibilidad de manejar las dependencias de manera centralizada a través del fichero pom.xml
 
+Mediante un conjunto de instrucciones tales como *clean*, *validate*, *test* y package, maven descarga las dependencias, corre los tests y empaqueta toda la aplicación en un archivo .jar
 
-### Almacenes de datos
-Para el microservicio de vendedores/productos, se utilizará como servidor de base de datos relacional PostgreSQL, dada la estrecha relación entre vendedores y sus productos.
-Con el obejtivo de almacenar las estadísticas, se empleará una base de datos NoSQL, particularmente MongoDB, pudiendo almacenar aquí los logs centralizados de ser necesario.
+##### Pruebas
+
+Al inicializar un proyecto [Spring Boot](https://start.spring.io/) se pueden seleccionar un conjunto de dependencias en función de las necesidades del proyecto. Al seleccionar Spring Web se añaden las dependencias necesarias para desarrollo Restful asi como la configuración automática de un servidor [Tomcat](http://tomcat.apache.org/) embebido. Adicionalmente, en el pom.xml se lista la dependencia *spring-boot-starter-test*. Esta dependencia incluye lo siguiente:
+
++ [JUnit](https://junit.org/junit5/): *framework* de pruebas para Java en su versión 5
++ [Mockito](https://site.mockito.org/): *mocking framework* de pruebas unitarias, en este caso la versión 3
++ [AssertJ](https://junit.org/junit5/): librería de aserciones, versión 3
++ [Hamcrest](http://hamcrest.org/JavaHamcrest/): *framework* de emparejadores (*matchers*) flexible, versión 2 
+
+Las pruebas del proyecto se implementan utilizando este conjunto de componentes, aprovechando su compatibilidad con Spring Boot.
+
+##### Integración continua
+
+La primera opción considerada fue Jenkins, pero no fue posible encontrar una web gratuita para utilizar. En esta fase del proyecto se configuraron dos entornos diferentes para evaluar, uno con [Travis](https://travis-ci.org/) y otro con [CircleCI](https://circleci.com/). Cada uno tiene fortalezas y debilidades, por ejemplo en el plan gratuito Travis permite ejecutar los test en más de una máquina a la vez. Ambos se configuran con archivos yml, Travis con [.travis.yml](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/.travis.yml) y CircleCi con [.circleci/config.yml](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/.circleci/config.yml)
+
 
 ### Licencia
-Se utiliza [GNU General Public License v3.0](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/LICENSE) 
+[GNU General Public License v3.0](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/LICENSE) 
