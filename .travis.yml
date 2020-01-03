@@ -1,9 +1,14 @@
+# Configuration based on https://docs.travis-ci.com/user/languages/java/
 language: java
 jdk:
+#JDK versions
 - oraclejdk8
 - openjdk8
+#Ubuntu distribution
 dist: trusty
 before_install:
+# Give permissions due to error
 - chmod +x vendors_products/mvnw
 script:
+#Run tests
   - mvn  -B -f vendors_products/pom.xml test

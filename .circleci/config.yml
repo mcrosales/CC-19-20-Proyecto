@@ -1,14 +1,14 @@
-# Java Maven CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-java/ for more details
-#
+# Configuration based on https://circleci.com/docs/2.0/language-java/
+
+#Circle CI version
 version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
+      # JDK version
       - image: circleci/openjdk:8-jdk
 
+    #Specify subdirectory
     working_directory: ~/repo/vendors_products
 
     environment:
