@@ -30,5 +30,28 @@ class ProductTest {
 
     @Test
     void requiresInventoryAnalysis() {
+        Product fewStockProduct = new Product();
+        fewStockProduct.setName("Samsung tablet");
+        fewStockProduct.setPrice(542.99);
+        fewStockProduct.setAmountAvailable(1);
+        Assertions.assertTrue(fewStockProduct.requiresInventoryAnalysis());
+    }
+
+    @Test
+    void productsAreUniquelyIdentifiable() {
+        //New product
+        Product product = new Product();
+        product.setId(1);
+        product.setName("Nike Sneakers");
+        product.setPrice(99.99);
+
+
+        //Other product with same
+        Product otherProduct = new Product();
+        product.setId(2);
+        otherProduct.setName("Nike sneakers");
+        otherProduct.setPrice(99.99);
+        Assertions.assertNotEquals(product, otherProduct, "Products should be differentiable through ID");
+        Assertions.assertNotEquals(product.hashCode(), otherProduct.hashCode(), "Two products hash codes should be different");
     }
 }

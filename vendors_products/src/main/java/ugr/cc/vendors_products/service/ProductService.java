@@ -17,6 +17,10 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
+    /** Creates or updates a @{@link Product}
+     * @param product: an object of type Product
+     * @return Product
+     */
     public Product saveProduct(Product product) {
         //Run validations
 
@@ -24,14 +28,26 @@ public class ProductService {
         return productRepository.save(product);
     }
 
+
+    /** Deletes a @{@link Product} by id
+     * @param productId: Product identifier
+     * @return true if deleted, false otherwise
+     */
     public boolean deleteProduct(Integer productId) {
         return productRepository.deleteProductById(productId);
     }
 
+    /** Finds a @{@link Product} by id
+     * @param id: Product id
+     * @return Product
+     */
     public Product findProduct(Integer id) {
         return productRepository.findFirstById(id);
     }
 
+    /** Returns all products
+     * @return list of all products
+     */
     public List<Product> retrieveAllProducts() {
         return productRepository.findAllBy();
     }

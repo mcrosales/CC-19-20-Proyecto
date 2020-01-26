@@ -121,6 +121,11 @@ public class Product {
         this.name = name;
     }
 
+    public Product(Integer id, String name) {
+        this.name = name;
+        this.id = id;
+    }
+
     public Product() {
     }
 }
