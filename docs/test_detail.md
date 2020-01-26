@@ -1,4 +1,4 @@
-# Covertura de pruebas
+# Cobertura de pruebas
 Para la cobertura de pruebas (test coverage) utilizamos JaCoCo añadiendo una serie de líneas en el pom.xml para ejecutar el analísis desde nuestra herramienta de construcción, quedando de la manera siguiente:
 
     <plugin>
@@ -86,7 +86,7 @@ Al indicar:
 						</configuration>
 					</execution>
 
- se especifica que el chequeo de cobertura se ligue a la fase test de maven (cuando ejecutamos maven test) y especificamos como mínimo un 95% de covertura para las instrucciones del proyecto, revisando cada paquete (PACKAGE). Si no se cumple este requisito, el build de maven falla siempre que se corran los test. La salida de consola es similar a la siguiente:
+ se especifica que el chequeo de cobertura se ligue a la fase test de maven (cuando ejecutamos maven test) y especificamos como mínimo un 95% de cobertura para las instrucciones del proyecto, revisando cada paquete (PACKAGE). Si no se cumple este requisito, el build de maven falla siempre que se corran los test. La salida de consola es similar a la siguiente:
 
  	[INFO] --- jacoco-maven-plugin:0.8.5:check (jacoco-check) @ vendors_products ---
 	[INFO] Loading execution data file /home/travis/build/mcrosales/CC-19-20-Proyecto/vendors_products/target/jacoco.exec
@@ -105,7 +105,7 @@ En este otro fragmento, se ata la generación del reporte de resultados también
 
 Esto genera un reporte como este en la carpeta *target/site/jacoco* (el directorio se puede cambiar):
 
-![](img\coverage.jpg)
+![](img/coverage.jpg)
 
 
 ### Bibliografía específica (tanto para consulta como para copia de instrucciones, de las cuales no pretendo por ningún motivo atribuirme su creación)

@@ -6,7 +6,7 @@ Spring Boot es un proyecto que hace uso del ecosistema Spring para proveer un en
 
 Para crear un proyecto Spring Boot, una de las formas más expeditas es utilizar [Spring Initializr](https://start.spring.io/)
 
-![](img\springInitializer.jpg)
+![Spring](img/springInitializer.jpg)
 
 En esta web se escogen las dependencias que necesitamos en dependencia del tipo de proyecto. Para este caso seleccionamos solamente Spring Web para tener lo mínimo.
 
@@ -62,7 +62,7 @@ La única clase creada, bajo el paquete src, es la que contiene el método *main
 
 Con este tenemos una aplicación Java completamente funcional. Al ejecutar Run desde nuestro IDE preferido o empaquetando con Maven y ejecutando el JAR obtenemos una salida de consola similar a esta:
 
-![](img\spring_boot.jpg)
+![console](img/spring_boot.jpg)
 
 Con esta salida, la aplicación se encuentra corriendo en un servidor Tomcat embebido autoconfigurado por Spring Boot en el puerto por defecto 8080.
 
