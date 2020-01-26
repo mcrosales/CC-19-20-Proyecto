@@ -86,7 +86,12 @@ Al indicar:
 						</configuration>
 					</execution>
 
- se especifica que el chequeo de cobertura se ligue a la fase test de maven (cuando ejecutamos maven test) y especificamos como mínimo un 95% de covertura para las instrucciones del proyecto, revisando cada paquete (PACKAGE). Si no se cumple este requisito, el build de maven falla siempre que se corran los test.
+ se especifica que el chequeo de cobertura se ligue a la fase test de maven (cuando ejecutamos maven test) y especificamos como mínimo un 95% de covertura para las instrucciones del proyecto, revisando cada paquete (PACKAGE). Si no se cumple este requisito, el build de maven falla siempre que se corran los test. La salida de consola es similar a la siguiente:
+
+ 	[INFO] --- jacoco-maven-plugin:0.8.5:check (jacoco-check) @ vendors_products ---
+	[INFO] Loading execution data file /home/travis/build/mcrosales/CC-19-20-Proyecto/vendors_products/target/jacoco.exec
+	[INFO] Analyzed bundle 'vendors_products' with 3 classes
+	[INFO] All coverage checks have been met.
 
 En este otro fragmento, se ata la generación del reporte de resultados también a la fase test de maven.
 
