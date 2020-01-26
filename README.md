@@ -30,13 +30,13 @@ Al ser un proyecto Java, en cuanto a herramientas de construcción se refiere do
 
 Mediante un conjunto de instrucciones tales como *clean*, *validate*, *test* y package, maven descarga las dependencias, corre los tests y empaqueta toda la aplicación en un archivo .jar
 
-Para más detalles de maven consultar el siguente enlace
+Para más detalles de maven consultar el siguente [enlace](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/docs/maven_detail.md)
 
 ##### Versiones de lenguaje y herramientas
 
 El proyecto, o la mayor parte del mismo, se va a desarrollar en Java. Si bien se podría prescindir de un framework, hay varios, o al menos algunos que nos facilitan ciertas tareas relacionadas al desarrollo que de otra forma hay que configurar desde cero, con su consecuente costo en tiempo. En este proyecto se hace uso extensivo de [Spring Boot](https://github.com/spring-projects/spring-boot). La versión estable más reciente de Spring Boot es la 2.2.2. Soporta las versiones de Java 8, 11 y 13. A pesar de ser Java 8 la más antigua se seleccionó por su madurez y su alta compatibilidad con otras herramientas del ecosistema.
 
-Para más detalles de Spring Boot, consultar el siguiente enlace
+Para más detalles de Spring Boot, consultar el siguiente [enlace](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/docs/spring_boot_detail.md)
 
 ##### Pruebas
 
@@ -55,7 +55,7 @@ Para el reporte de cobertura de código utilizamos [Jacoco](https://www.eclemma.
 
 La primera opción considerada fue Jenkins, pero no fue posible encontrar una web gratuita para utilizar. En esta fase del proyecto se configuraron dos entornos diferentes para evaluar, uno con [Travis](https://travis-ci.org/) y otro con [CircleCI](https://circleci.com/). Cada uno tiene fortalezas y debilidades, por ejemplo en el plan gratuito Travis permite ejecutar los test en más de una máquina a la vez. Ambos se configuran con archivos yml, Travis con [.travis.yml](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/.travis.yml) y CircleCi con [.circleci/config.yml](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/.circleci/config.yml)
 
-Para más detalles de travis, consultar el siguiente enlace
+Para más detalles de travis, consultar el siguiente [enlace](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/docs/travis_detail.md)
 
 ### Licencia
 [GNU General Public License v3.0](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/LICENSE) 
