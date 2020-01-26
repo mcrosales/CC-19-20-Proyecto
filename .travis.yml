@@ -5,6 +5,12 @@ jdk:
 # Versiones de JDK 8, en este caso utilizamos dos, la propietaria de Oracle y una libre
 - oraclejdk8
 - openjdk8
+
+#Usamos las dos mayores existentes en este momento
+- oraclejdk13
+- oraclejdk11
+- openjdk13
+- openjdk11
 # Distribución de linux seleccionada del conjunto que proporciona travis, en este caso Ubuntu Trusty 14.04, la distribución más reciente que todavía soporta la JDK de Oracle
 dist: trusty
 before_install:
