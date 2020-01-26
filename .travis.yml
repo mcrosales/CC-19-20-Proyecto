@@ -1,17 +1,21 @@
-# Configuration based on https://docs.travis-ci.com/user/languages/java/
+# Configuración basada en https://docs.travis-ci.com/user/languages/java/
 # Lenguaje de programación utilizado
 language: java
+# Guardar las dependencias de Maven en el directorio .m2 para no descargalar cada vez que se ejecuta un build
+cache:
+  directories:
+    - $HOME/.m2
+# Versiones de JDK, en este caso utilizamos 4, las versiones menores no pueden ser inferiores a la 8, 
+# puesto que la versión del framework utilizado no lo soporta. 
+# Al momento de realizar el proyecto, la última versión estable es la 13
 jdk:
-# Versiones de JDK 8, en este caso utilizamos dos, la propietaria de Oracle y una libre
 - oraclejdk8
 - openjdk8
 
-#Usamos las dos mayores existentes en este momento
 - oraclejdk13
-- oraclejdk11
 - openjdk13
-- openjdk11
-# Distribución de linux seleccionada del conjunto que proporciona travis, en este caso Ubuntu Trusty 14.04, la distribución más reciente que todavía soporta la JDK de Oracle
+
+# Distribución de linux seleccionada del conjunto que proporciona travis, en este caso Ubuntu Trusty 14.04, la distribución más reciente que todavía soporta la JDK 8 de Oracle
 dist: trusty
 before_install:
 # Proporcionar permisos de lectura y escritura dentro de la carpeta mvnw del microservicio vendors_products 
