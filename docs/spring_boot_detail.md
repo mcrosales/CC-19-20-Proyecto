@@ -62,7 +62,9 @@ La única clase creada, bajo el paquete src, es la que contiene el método *main
 
 Con este tenemos una aplicación Java completamente funcional. Al ejecutar Run desde nuestro IDE preferido o empaquetando con Maven y ejecutando el JAR obtenemos una salida de consola similar a esta:
 
-![](img\springInitializer.jpg)
+![](img\spring_boot.jpg)
+
+Con esta salida, la aplicación se encuentra corriendo en un servidor Tomcat embebido autoconfigurado por Spring Boot en el puerto por defecto 8080.
 
 ### Bibliografía específica (tanto para consulta como para copia de instrucciones, de las cuales no pretendo por ningún motivo atribuirme su creación)
 

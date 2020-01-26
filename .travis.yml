@@ -1,14 +1,15 @@
 # Configuration based on https://docs.travis-ci.com/user/languages/java/
+# Lenguaje de programación utilizado
 language: java
 jdk:
-#JDK versions
+# Versiones de JDK 8, en este caso utilizamos dos, la propietaria de Oracle y una libre
 - oraclejdk8
 - openjdk8
-#Ubuntu distribution
+# Distribución de linux seleccionada del conjunto que proporciona travis, en este caso Ubuntu Trusty 14.04, la distribución más reciente que todavía soporta la JDK de Oracle
 dist: trusty
 before_install:
-# Give permissions due to error
+# Proporcionar permisos de lectura y escritura dentro de la carpeta mvnw del microservicio vendors_products 
 - chmod +x vendors_products/mvnw
 script:
-#Run tests
+# Ejecutar los test del microservicio vendors_products
   - mvn  -B -f vendors_products/pom.xml test
