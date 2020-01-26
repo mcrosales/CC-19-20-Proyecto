@@ -68,7 +68,11 @@ Con esta salida, la aplicación se encuentra corriendo en un servidor Tomcat emb
 
 ### Bibliografía específica (tanto para consulta como para copia de instrucciones, de las cuales no pretendo por ningún motivo atribuirme su creación)
 
-[Maven sitio oficial](https://maven.apache.org/)
+[Spring Boot](https://spring.io/projects/spring-boot)
+
+[Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
+
+
 
 
 
