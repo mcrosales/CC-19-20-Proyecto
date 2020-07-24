@@ -2,7 +2,7 @@
 
 Repositorio para proyecto de asignatura Cloud Computing de Maestría  en Informática de la Universidad de Granada
 
-## Mayorista
+## Mayorista 
 
 La aplicación Mayorista constará de dos entidades fundamentales. De una parte, permitirá a potenciales vendedores mayoristas la gestión centralizada de todos los productos que tienen en venta.
 De otra, se ofrecerán estadísticas centralizadas, disponibles para los propios vendedores o terceros, previo acuerdo. 
