@@ -12,9 +12,9 @@ public class SiteStatistics {
     @Id
     @GeneratedValue
     private Integer id;
-    private Double totalProducts;
+    private Integer totalProducts;
     private Double netInventoryValue;
-    private Double totalVendors;
+    private Integer totalVendors;
     private Date measurementDay;
     private Time measurementTime;
 
@@ -26,28 +26,12 @@ public class SiteStatistics {
         this.id = id;
     }
 
-    public Double getTotalProducts() {
-        return totalProducts;
-    }
-
-    public void setTotalProducts(Double totalProducts) {
-        this.totalProducts = totalProducts;
-    }
-
     public Double getNetInventoryValue() {
         return netInventoryValue;
     }
 
     public void setNetInventoryValue(Double netInventoryValue) {
         this.netInventoryValue = netInventoryValue;
-    }
-
-    public Double getTotalVendors() {
-        return totalVendors;
-    }
-
-    public void setTotalVendors(Double totalVendors) {
-        this.totalVendors = totalVendors;
     }
 
     public Date getMeasurementDay() {
@@ -63,6 +47,15 @@ public class SiteStatistics {
     }
 
     public void setMeasurementTime(Time measurementTime) {
+        this.measurementTime = measurementTime;
+    }
+
+    public SiteStatistics(Integer totalProducts, Double netInventoryValue, Integer totalVendors, Date measurementDay,
+                          Time measurementTime) {
+        this.totalProducts = totalProducts;
+        this.netInventoryValue = netInventoryValue;
+        this.totalVendors = totalVendors;
+        this.measurementDay = measurementDay;
         this.measurementTime = measurementTime;
     }
 }

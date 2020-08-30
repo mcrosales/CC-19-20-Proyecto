@@ -14,7 +14,7 @@ import java.sql.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/products")
+@RequestMapping(value = "/statistics")
 public class StatisticsController {
 
     private final SiteStatisticsService statisticsService;
