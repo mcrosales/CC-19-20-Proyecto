@@ -1,12 +1,25 @@
 package ugr.cc.vendors_products.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.sql.Date;
 import java.util.Objects;
 
 public class Vendor {
+    @Id
+    @GeneratedValue
+    private Integer id;
     private String name;
     private String lastName;
     private Date birthDate;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
