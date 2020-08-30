@@ -71,7 +71,7 @@ public class ProductController {
      * PUT  /update -> Updates a product.
      */
     @RequestMapping(value = "/update/{id}",
-            method = RequestMethod.POST,
+            method = RequestMethod.PUT,
             produces = MediaType.APPLICATION_JSON_VALUE)
 
     public ResponseEntity<Product> update(@PathVariable int id,
@@ -87,17 +87,18 @@ public class ProductController {
      * DELETE  /delete -> Deletes a product.
      */
     @RequestMapping(value = "/delete/{id}",
-            method = RequestMethod.POST,
+            method = RequestMethod.DELETE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> delete(@PathVariable int id) {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("status", "OK");
+
         boolean deleted = productService.deleteProduct(id);
         if (deleted) {
-            return ResponseEntity.ok().headers(responseHeaders).body(null);
+            return ResponseEntity.ok().headers(responseHeaders).body("Product deleted successfully");
         } else {
             //Bad request response due to non existent product identifier
-            return ResponseEntity.badRequest().headers(responseHeaders).body(null);
+            return ResponseEntity.badRequest().headers(responseHeaders).body("Unable to delete product");
         }
     }
 }

@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.Matchers.hasSize;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
@@ -54,6 +55,47 @@ class ProductControllerTest {
     }
 
     /**
+     * Test getting one product through GET method
+     */
+    @Test
+    public void testGetOne() throws Exception {
+
+        //Valid product
+        Product product = new Product(19.99, "The Lord of The Rings");
+        Mockito.when(productService.findProduct(2)).thenReturn(product);
+
+        ResultActions resultActions = mockMvc.perform(MockMvcRequestBuilders.get("/products/".concat(String.valueOf(2)))
+                .contentType(MediaType.APPLICATION_JSON)
+        );
+
+        resultActions.andDo(print());
+        MvcResult mvcResult = resultActions.andReturn();
+
+        int status = mvcResult.getResponse().getStatus();
+        Assertions.assertEquals(200, status);
+        String responseBody = mvcResult.getResponse().getContentAsString();
+
+        Assertions.assertNotNull(responseBody, "Response body should not be null");
+
+        //Invalid product
+        Mockito.when(productService.findProduct(-2)).thenReturn(null);
+
+        resultActions = mockMvc.perform(MockMvcRequestBuilders.get("/products/".concat(String.valueOf(-2)))
+                .contentType(MediaType.APPLICATION_JSON)
+        );
+
+        resultActions.andDo(print());
+        mvcResult = resultActions.andReturn();
+
+        status = mvcResult.getResponse().getStatus();
+        Assertions.assertEquals(400, status);
+        responseBody = mvcResult.getResponse().getContentAsString();
+
+        Assertions.assertEquals("", responseBody,"Response body should be empty");
+
+    }
+
+    /**
      * Test creating a product through POST method
      */
     @Test
@@ -77,4 +119,65 @@ class ProductControllerTest {
         Assertions.assertNotNull(responseBody, "Response body should not be null either");
     }
 
+    /**
+     * Test updating a product through PUT method
+     */
+    @Test
+    public void testUpdateProduct() throws Exception {
+
+        Product product = new Product(5000.00, "Test product");
+        product.setId(1);
+        Mockito.when(productService.saveProduct(product)).thenReturn(product);
+
+        ResultActions resultActions = mockMvc.perform(
+                MockMvcRequestBuilders.put("/products/update/".concat(String.valueOf(product.getId())))
+                        .contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(
+                        product
+                )));
+        resultActions.andDo(print());
+        MvcResult mvcResult = resultActions.andReturn();
+
+        int status = mvcResult.getResponse().getStatus();
+        Assertions.assertEquals(200, status);
+        String responseBody = mvcResult.getResponse().getContentAsString();
+
+        Assertions.assertNotNull(responseBody, "Response body should not be null either");
+    }
+
+    /**
+     * Test updating a product through PUT method
+     */
+    @Test
+    public void testDeleteProduct() throws Exception {
+
+        //Non existent product
+        Mockito.when(productService.deleteProduct(-1)).thenReturn(false);
+
+        ResultActions resultActions = mockMvc.perform(
+                MockMvcRequestBuilders.delete("/products/delete/".concat(String.valueOf(-1)))
+                        .contentType(MediaType.APPLICATION_JSON));
+        resultActions.andDo(print());
+        MvcResult mvcResult = resultActions.andReturn();
+
+        int status = mvcResult.getResponse().getStatus();
+        Assertions.assertEquals(400, status);
+        String responseBody = mvcResult.getResponse().getContentAsString();
+
+        Assertions.assertNotNull(responseBody, "Response body should not be null");
+
+        //Existent product
+        Mockito.when(productService.deleteProduct(1)).thenReturn(true);
+
+        resultActions = mockMvc.perform(
+                MockMvcRequestBuilders.delete("/products/delete/".concat(String.valueOf(1)))
+                        .contentType(MediaType.APPLICATION_JSON));
+        resultActions.andDo(print());
+        mvcResult = resultActions.andReturn();
+
+        status = mvcResult.getResponse().getStatus();
+        Assertions.assertEquals(200, status);
+        responseBody = mvcResult.getResponse().getContentAsString();
+
+        Assertions.assertNotNull(responseBody, "Response body should not be null");
+    }
 }
