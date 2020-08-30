@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface StatsRepository extends PagingAndSortingRepository<SiteStatistics, Integer> {
 
-    List<SiteStatistics> findAllOrderById();
+    List<SiteStatistics> findAllByOrderById();
 
     List<SiteStatistics> findAllByMeasurementDayGreaterThanEqualOrderById(Date date);
 

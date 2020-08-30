@@ -28,6 +28,6 @@ public class SiteStatisticsService {
         if (secondDate != null) {
             return statsRepository.findAllByMeasurementDayLessThanEqualOrderById(secondDate);
         }
-        return statsRepository.findAllOrderById();
+        return statsRepository.findAllByOrderById();
     }
 }
