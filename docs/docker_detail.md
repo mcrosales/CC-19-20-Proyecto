@@ -23,10 +23,12 @@ Llegados a este punto tenemos Java para ejecutar la aplicación, pero no hemos te
 varias opciones. Primeramente, se podría compilar el proyecto en el sistema de archivos local y copiarlo luego al contenedor, de manera similar
 a esta:
 
+```
 FROM openjdk:8-jdk-alpine
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
+```
 
 En este archivo estaríamos definiendo la imagen base de Alpine con OpenJDK 8, copiando el jar de nuestro
 servicio previamente empaquetado y ejecutándolo. Esta variante tiene el inconveniente de establecer dependencias a software fuera del contenedor. Alternativamente podríamos
@@ -37,11 +39,13 @@ en DockerHub existe una imagen de Alpine con Maven pre-instalado solamente 10 Mb
 
 De esta manera el Dockerfile quedaría:
 
+```
 FROM maven:3.5-jdk-8-alpine
 WORKDIR /app
 COPY  /vendors_products /app
 RUN mvn package
 ENTRYPOINT ["java","-jar","target/vendors_products-0.1.jar"]
+```
 
 En la línea COPY se copia todo el contenido de la carpeta vendors_products a una carpeta app en el contenedor.
 Al ejecutar mvn package, Maven lee el fichero pom.xml del microservicio, descarga las dependencias, ejecuta los test
@@ -99,9 +103,9 @@ Y luego obtener la lista de productos insertados:
 
 [Spring Boot y Docker] (https://spring.io/guides/gs/spring-boot-docker/)
 
-[Docker] (https://www.docker.com/resources/what-container)
+[Docker](https://www.docker.com/resources/what-container)
 
-[Referencia Docker] (https://docs.docker.com/engine/reference/builder/)
+[Referencia Docker](https://docs.docker.com/engine/reference/builder/)
 
 
 

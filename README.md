@@ -4,8 +4,8 @@ Repositorio para proyecto de asignatura Cloud Computing de Maestr√≠a  en Inform√
 
 Versiones del README:
 
-[1](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/docs/milestones/README_1.md)
-[2](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/docs/milestones/README_2.md)
++[1](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/docs/milestones/README_1.md)
++[2](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/docs/milestones/README_2.md)
 
 ## Mayorista 
 
