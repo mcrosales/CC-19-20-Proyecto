@@ -4,8 +4,8 @@ Repositorio para proyecto de asignatura Cloud Computing de Maestría  en Inform�
 
 Versiones del README:
 
-+[1](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/docs/milestones/README_1.md)
-+[2](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/docs/milestones/README_2.md)
++ [1](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/docs/milestones/README_1.md)
++ [2](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/docs/milestones/README_2.md)
 
 ## Mayorista 
 
@@ -32,7 +32,7 @@ En el siguiente enlace se exponene algunos detalles de interés de la implementa
 
 Un contenedor es una unidad estándar de software que empaqueta el código y todas sus dependencias para que la aplicación se ejecute de forma rápida y confiable de un entorno a otro.
 En el proyecto se emplea Docker, aunque existen otros motores de contenedores como [podman] (https://podman.io/). Para más detalles de los contenedores utilizados y su configuración
-seguir el siguiente [enlace]
+seguir el siguiente [enlace](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/docs/docker_detail.md)
 
 
 ##### Herramienta de construcción
@@ -81,7 +81,7 @@ Detalles de travis y su configuración, [aquí](https://github.com/mcrosales/CC-
 
 [Spring Boot](https://spring.io/projects/spring-boot)
 
-[Docker] (https://www.docker.com/resources/what-container)
+[Docker](https://www.docker.com/resources/what-container)
 
 
 
