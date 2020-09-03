@@ -26,12 +26,20 @@ Ambos microservicios siguen la siguiente estructura de paquetes:
 
 Esta estructura está asociada con el patrón de diseño [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller). Si bien por si sola no garantiza el éxito ni el uso de patrones y principios de diseño fundamentales (como los definidos en [Design Patterns: Elements of Reusable Object-Oriented Software](https://en.wikipedia.org/wiki/Design_Patterns)), proporciona una estructura básica de trabajo configurable y adaptable a nuestras necesidades. Algunos ejemplos de frameworks que utilizan esta etructura o versiones de la misma son [Yii](https://www.yiiframework.com/), [Play](https://www.playframework.com/) y [ADF](https://www.oracle.com/database/technologies/developer-tools/adf/). Este último resulta particularmente atractivo, puesto que propone un enfoque bottom-top para desarollar la aplicación, poniendo enfásis primordialmente en el diseño del modelo de datos.
 
-En el siguiente enlace se exponene algunos detalles de interés de la implementación
+En el siguiente [enlace](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/docs/microservices_detail.md) se exponen algunos detalles de interés de la implementación
 
 #### Contenedores
 
 Un contenedor es una unidad estándar de software que empaqueta el código y todas sus dependencias para que la aplicación se ejecute de forma rápida y confiable de un entorno a otro.
-En el proyecto se emplea Docker, aunque existen otros motores de contenedores como [podman] (https://podman.io/). Para más detalles de los contenedores utilizados y su configuración
+En el proyecto se emplea Docker, aunque existen otros motores de contenedores como [podman] (https://podman.io/). 
+
+Los dos contenedores está publicados en DockerHub bajo los sigueintes enlaces:
+
++ [vendors_products](https://hub.docker.com/repository/docker/mariocrosldocker/ugr_cc_vendor_products)
++ [statistics](https://hub.docker.com/repository/docker/mariocrosldocker/ugr_cc_statistics)
+
+
+Están configurados para construirse de manera automática cada vez que se sube un cambio a este repositorio de GitHub.Para más detalles de los contenedores utilizados y su configuración
 seguir el siguiente [enlace](https://github.com/mcrosales/CC-19-20-Proyecto/blob/master/docs/docker_detail.md)
 
 

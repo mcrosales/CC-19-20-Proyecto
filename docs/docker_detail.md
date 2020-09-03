@@ -101,7 +101,7 @@ Y luego obtener la lista de productos insertados:
 
 [Spring Boot](https://spring.io/projects/spring-boot)
 
-[Spring Boot y Docker] (https://spring.io/guides/gs/spring-boot-docker/)
+[Spring Boot y Docker](https://spring.io/guides/gs/spring-boot-docker/)
 
 [Docker](https://www.docker.com/resources/what-container)
 

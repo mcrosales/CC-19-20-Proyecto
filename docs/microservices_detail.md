@@ -70,7 +70,7 @@ Este comportamiento se emplea de la manera siguiente:
 SiteStatisticsService define que necesita una implementación **final** de StatsRepository al construirse.
 Con la anotación @Service al arrancar la apliación Spring Boot captura la clase y le inyecta
 la dependencia necesaria, en este caso la implementación concreta del repositorio en dependencia
-de la BD escogida (ver Persistencia)
+de la BD escogida (ver Persistencia).
 
 ## Persistencia
 
@@ -108,3 +108,17 @@ relacionadas con JPA (cómo CrudRepository, PagingAndSortingRepository) permiten 
  al heredar de PagingAndSortingRepository e incluir la clase SiteStatistics cuenta con métodos save, findAll y count implementados de manera automática
  para el acceso a la tabla SiteStatistics de la BD. Adicionalmente los métodos se pueden extender de manera declarativa, por ejemplo
  obteniendo sólo las estadísticas correspondientes a un rango de fecha.
+ 
+ ### Bibliografía general (tanto para consulta como para copia de instrucciones, de las cuales no pretendo por ningún motivo atribuirme su creación)
+
+[Desarrollo basado en pruebas](https://jj.github.io/CC/documentos/temas/Desarrollo_basado_en_pruebas)
+
+[Clases de Cloud Computing](https://github.com/JJ/CC-19-20)
+
+[Spring Boot](https://spring.io/projects/spring-boot)
+
+[Spring JPA](https://spring.io/guides/gs/accessing-data-jpa/)
+
+[Spring dependency injection](https://www.baeldung.com/inversion-control-and-dependency-injection-in-spring)
+
+[Inyección en controlador](https://www.tutorialsteacher.com/ioc/dependency-injection#:~:text=Dependency%20Injection%20(DI)%20is%20a,class%20that%20depends%20on%20them.)
