@@ -1,18 +1,23 @@
 package ugr.cc.vendors_products.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
+import java.util.Collection;
 import java.util.Objects;
 
+@Entity
 public class Vendor {
-    @Id
-    @GeneratedValue
+
     private Integer id;
     private String name;
     private String lastName;
     private Date birthDate;
 
+    private Collection<Product> productsById;
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
@@ -58,5 +63,14 @@ public class Vendor {
     @Override
     public int hashCode() {
         return Objects.hash(name, lastName, birthDate);
+    }
+
+    @OneToMany(mappedBy = "vendorByVendorId")
+    public Collection<Product> getProductsById() {
+        return productsById;
+    }
+
+    public void setProductsById(Collection<Product> productsById) {
+        this.productsById = productsById;
     }
 }

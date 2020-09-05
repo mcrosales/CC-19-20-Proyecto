@@ -1,9 +1,7 @@
 package ugr.cc.vendors_products.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -11,8 +9,7 @@ import java.util.Objects;
 @Entity
 public class Product {
 
-    @Id
-    @GeneratedValue
+
     private Integer id;
     private Double price;
     private Double discountedPrice;
@@ -22,16 +19,13 @@ public class Product {
     private Date expirationDate;
     private Boolean active;
 
-    Boolean isExpired() {
-        LocalDate localDate = LocalDate.now();
-        Date today = Date.valueOf(localDate);
-        return (expirationDate != null && expirationDate.getTime() <= today.getTime());
-    }
+    private Vendor vendorByVendorId;
+    private Integer vendorId;
 
-    Boolean requiresInventoryAnalysis() {
-        return amountAvailable <= 2;
-    }
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
@@ -97,6 +91,26 @@ public class Product {
         this.active = active;
     }
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "vendor_id", referencedColumnName = "id",
+            insertable = false, updatable = false)
+    public Vendor getVendorByVendorId() {
+        return vendorByVendorId;
+    }
+
+    public void setVendorByVendorId(Vendor vendorByVendorId) {
+        this.vendorByVendorId = vendorByVendorId;
+    }
+
+    @Column(name = "vendor_id")
+    public Integer getVendorId() {
+        return vendorId;
+    }
+
+    public void setVendorId(Integer vendorId) {
+        this.vendorId = vendorId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -127,5 +141,17 @@ public class Product {
     }
 
     public Product() {
+    }
+
+    @Transient
+    Boolean isExpired() {
+        LocalDate localDate = LocalDate.now();
+        Date today = Date.valueOf(localDate);
+        return (expirationDate != null && expirationDate.getTime() <= today.getTime());
+    }
+
+    @Transient
+    Boolean requiresInventoryAnalysis() {
+        return amountAvailable <= 2;
     }
 }

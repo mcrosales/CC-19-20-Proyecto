@@ -31,7 +31,10 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -58,9 +61,9 @@
 				<version>0.8.5</version>
 				<configuration>
 					<excludes>
+                        <exclude>ugr/cc/vendors_products/model/Vendor.class</exclude>
 						<exclude>ugr/cc/vendors_products/VendorsProductsApplication.class</exclude>
-						<exclude>ugr/cc/vendors_products/controller/VendorController.class</exclude>
-						<exclude>ugr/cc/vendors_products/model/Vendor.class</exclude>
+
 					</excludes>
 				</configuration>
 				<executions>
