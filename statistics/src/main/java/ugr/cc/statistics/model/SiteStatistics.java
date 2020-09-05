@@ -58,4 +58,20 @@ public class SiteStatistics {
         this.measurementDay = measurementDay;
         this.measurementTime = measurementTime;
     }
+
+    public Integer getTotalProducts() {
+        return totalProducts;
+    }
+
+    public void setTotalProducts(Integer totalProducts) {
+        this.totalProducts = totalProducts;
+    }
+
+    public Integer getTotalVendors() {
+        return totalVendors;
+    }
+
+    public void setTotalVendors(Integer totalVendors) {
+        this.totalVendors = totalVendors;
+    }
 }
