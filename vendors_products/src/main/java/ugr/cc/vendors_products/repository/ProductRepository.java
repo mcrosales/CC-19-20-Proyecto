@@ -15,5 +15,7 @@ public interface ProductRepository extends PagingAndSortingRepository<Product, I
 
     List<Product> findAllBy();
 
+    List<Product> findAllByVendorId(Integer vendorId);
+
     Product findFirstById(Integer id);
 }
