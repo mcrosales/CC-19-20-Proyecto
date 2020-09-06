@@ -2,6 +2,8 @@ package ugr.cc.vendors_products.model;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -72,5 +74,18 @@ public class Vendor {
 
     public void setProductsById(Collection<Product> productsById) {
         this.productsById = productsById;
+    }
+
+    @Transient
+    public boolean isAdult(){
+        String birthDateString = birthDate.toString();
+        LocalDate currentLocalDate = LocalDate.now();
+
+        //Parsing the date
+        LocalDate birthDate = LocalDate.parse(birthDateString);
+
+        //calculating number of days in between
+        int noOfYearsBetween = (int) ChronoUnit.YEARS.between(birthDate, currentLocalDate);
+        return noOfYearsBetween >= 18;
     }
 }
