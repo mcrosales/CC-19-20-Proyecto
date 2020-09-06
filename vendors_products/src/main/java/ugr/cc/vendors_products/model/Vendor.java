@@ -78,7 +78,7 @@ public class Vendor {
     }
 
     @Transient
-    public boolean isAdult(){
+    public boolean isAdult() {
         String birthDateString = birthDate.toString();
         LocalDate currentLocalDate = LocalDate.now();
 
@@ -91,6 +91,14 @@ public class Vendor {
     }
 
     public Vendor(String name, String lastName, Date birthDate) {
+        this.name = name;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.productsById = new LinkedList<>();
+    }
+
+    public Vendor(Integer id, String name, String lastName, Date birthDate) {
+        this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.birthDate = birthDate;
