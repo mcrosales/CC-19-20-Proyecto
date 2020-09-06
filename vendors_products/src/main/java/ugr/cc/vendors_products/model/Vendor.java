@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.Objects;
 
 @Entity
@@ -87,5 +88,16 @@ public class Vendor {
         //calculating number of days in between
         int noOfYearsBetween = (int) ChronoUnit.YEARS.between(birthDate, currentLocalDate);
         return noOfYearsBetween >= 18;
+    }
+
+    public Vendor(String name, String lastName, Date birthDate) {
+        this.name = name;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.productsById = new LinkedList<>();
+    }
+
+    public Vendor() {
+        this.productsById = new LinkedList<>();
     }
 }

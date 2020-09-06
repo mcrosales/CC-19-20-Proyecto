@@ -62,6 +62,8 @@
 				<configuration>
 					<excludes>
                         <exclude>ugr/cc/vendors_products/model/Vendor.class</exclude>
+                        <exclude>ugr/cc/vendors_products/controller/VendorController.class</exclude>
+                        <exclude>ugr/cc/vendors_products/service/VendorService.class</exclude>
 						<exclude>ugr/cc/vendors_products/VendorsProductsApplication.class</exclude>
 
 					</excludes>
