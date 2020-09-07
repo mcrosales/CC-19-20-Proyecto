@@ -1,5 +1,7 @@
 package ugr.cc.vendors_products.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -69,6 +71,7 @@ public class Vendor {
     }
 
     @OneToMany(mappedBy = "vendorByVendorId")
+    @JsonBackReference(value = "products")
     public Collection<Product> getProductsById() {
         return productsById;
     }

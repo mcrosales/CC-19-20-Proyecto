@@ -1,6 +1,8 @@
 package ugr.cc.vendors_products.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -91,9 +93,10 @@ public class Product {
         this.active = active;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vendor_id", referencedColumnName = "id",
             insertable = false, updatable = false)
+    @JsonIgnore
     public Vendor getVendorByVendorId() {
         return vendorByVendorId;
     }

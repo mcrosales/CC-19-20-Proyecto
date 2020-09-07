@@ -34,7 +34,8 @@ public class ProductController {
      */
     @GetMapping("/all")
     ResponseEntity<List<Product>> getAllProducts() {
-        return new ResponseEntity<>(productService.retrieveAllProducts(), HttpStatus.OK);
+        List<Product> products = productService.retrieveAllProducts();
+        return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
     /**
